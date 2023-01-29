@@ -24,13 +24,13 @@
 
 kaoyanyun.counter的fuzzy表：
 
-![福昕截屏20230129145444662](.\images\福昕截屏20230129145444662.PNG)
+![福昕截屏20230129145444662](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%A6%8F%E6%98%95%E6%88%AA%E5%B1%8F20230129145444662.PNG)
 
 这个是模糊计数表，用于计数服务的模糊计数，例如浏览数，点赞数等等。
 
 kaoyanyun.counter的precise表：
 
-![福昕截屏20230129145444662](.\images\福昕截屏20230129145444662.PNG)
+![福昕截屏20230129145444662](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%A6%8F%E6%98%95%E6%88%AA%E5%B1%8F20230129145444662.PNG)
 
 这两个表是一模一样的，为什么要分开呢？
 
@@ -44,15 +44,15 @@ kaoyanyun.redpack的redpack表：
 
 这个表用于存放红包数据。
 
-![福昕截屏20230129145813903](.\images\福昕截屏20230129145813903.PNG)
+![福昕截屏20230129145813903](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%A6%8F%E6%98%95%E6%88%AA%E5%B1%8F20230129145813903.PNG)
 
 kaoyanyun.user的attention表，用户关注表：
 
-![福昕截屏20230129145915286](.\images\福昕截屏20230129145915286.PNG)
+![福昕截屏20230129145915286](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%A6%8F%E6%98%95%E6%88%AA%E5%B1%8F20230129145915286.PNG)
 
 kaoyanyun.user的follower表，用户追随表：
 
-![福昕截屏20230129150116663](.\images\福昕截屏20230129150116663.PNG)
+![福昕截屏20230129150116663](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%A6%8F%E6%98%95%E6%88%AA%E5%B1%8F20230129145915286.PNG)
 
 这个表和attention是差不多的，attention有一个flg字段，flg代表大V的标识，这个是为了项目未来针对大V专门进行一些设计，暂时没有用到。而为什么要分成attention和follower呢？其实一张表也可以做。
 
@@ -64,25 +64,25 @@ kaoyanyun.user的follower表，用户追随表：
 
 kaoyanyun.user的blog表：
 
-![福昕截屏20230129150435191](.\images\福昕截屏20230129150435191.PNG)
+![福昕截屏20230129150435191](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%A6%8F%E6%98%95%E6%88%AA%E5%B1%8F20230129150435191.PNG)
 
 贴子表。
 
 kaoyanyun.user的file表：
 
-![福昕截屏20230129150507230](.\images\福昕截屏20230129150507230.PNG)
+![福昕截屏20230129150507230](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%A6%8F%E6%98%95%E6%88%AA%E5%B1%8F20230129150507230.PNG)
 
 这个表用于存放文件的元信息。
 
 kaoyanyun.user的comment表：
 
-![福昕截屏20230129150609990](.\images\福昕截屏20230129150609990.PNG)
+![福昕截屏20230129150609990](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%A6%8F%E6%98%95%E6%88%AA%E5%B1%8F20230129150609990.PNG)
 
 目前还没有考虑评论底下还可以继续评论的问题。type字段是为了增加项目的可拓展性，形成一个业务中台。
 
 kaoyanyun.user的user表：
 
-![福昕截屏20230129150746551](.\images\福昕截屏20230129150746551.PNG)
+![福昕截屏20230129150746551](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%A6%8F%E6%98%95%E6%88%AA%E5%B1%8F20230129150746551.PNG)
 
 密码存放的是盐值加密后的密码。
 
@@ -135,7 +135,7 @@ JWT其实已经可以了为什么还要用Redis？
 
 结构如下：
 
-![登录测试1](.\images\登录测试1.PNG)
+![登录测试1](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%99%BB%E5%BD%95%E6%B5%8B%E8%AF%951.PNG)
 
 - 在`middleware/jwt.go`中增加判定逻辑。通过`uid`和`User-Agent`（从解析token中包含的相关信息claims中获取uid），查出redis中的token。判定携带的token是否和redis中的token一样。如果不一样说明是旧的token，直接`c.Abort()`然后`return`。
 
@@ -148,7 +148,7 @@ JWT其实已经可以了为什么还要用Redis？
 
 可以发现使用第一次token去请求会403：
 
-![登录测试2](.\images\登录测试2.PNG)
+![登录测试2](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%99%BB%E5%BD%95%E6%B5%8B%E8%AF%952.PNG)
 
 据说微信就是这样做的（跟群友讨论的）：
 
@@ -184,7 +184,7 @@ JWT其实已经可以了为什么还要用Redis？
 
 ## 抢红包系统是怎么设计的？
 
-![抢红包业务分析.excalidraw](.\images\抢红包业务分析.excalidraw.png)
+![抢红包业务分析.excalidraw](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E6%8A%A2%E7%BA%A2%E5%8C%85%E4%B8%9A%E5%8A%A1%E5%88%86%E6%9E%90.excalidraw.png)
 
 可以明显的看到打开了红包不一定可以抢到。这样做的好处是：
 
@@ -192,7 +192,7 @@ JWT其实已经可以了为什么还要用Redis？
 - 防止误领，发现不对劲可以马上退出
 - 流程拆的长一些，平摊高并发下的压力
 
-![红包.excalidraw](.\images\红包.excalidraw.png)
+![红包.excalidraw](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%BA%A2%E5%8C%85.excalidraw.png)
 
 预拆包：我在发红包的时候，就已经把所有的东西都计算好了放在redis里面了。
 
@@ -208,11 +208,11 @@ JWT其实已经可以了为什么还要用Redis？
 
 每次抢到的金额 = 随机区间(0, M/N*2)。
 
-![image-20230102140655356](.\images\image-20230102140655356.png)
+![image-20230102140655356](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/image-20230102140655356.png)
 
 发红包的时候需要指定红包的金额和个数。然后通过二倍均值法计算后放入Redis。这里我们采用的数据结构是List类型，因为List抢走一个红包和红包库存呢减一是一个原子性操作。而且List类型的数据结构就决定了获取库存的时间复杂度是O(1)，是可行的。到时候按照顺序弹出即可。
 
-![image-20221231160638576](.\images\image-20221231160638576.png)
+![image-20221231160638576](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/image-20221231160638576.png)
 
 ### 拆红包
 
@@ -222,11 +222,11 @@ JWT其实已经可以了为什么还要用Redis？
 
 用户点击抢红包，此时再次判断库存是否充足，如果充足的话判断用户是否抢过红包，如果两个条件都满足的话，就抢红包成功，从Redis里面弹出一个红包给用户，更新对应的Redis(红包总金额要扣除了)，然后使用消息队列异步的调用服务，将用户的金额进行相应的加上。
 
-![image-20221231161312676](.\images\image-20221231161312676.png)
+![image-20221231161312676](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/image-20221231161312676.png)
 
 与此同时，需要记录哪些用户已经抢过红包了。
 
-![image-20221231161635993](.\images\image-20221231161635993.png)
+![image-20221231161635993](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/image-20221231161635993.png)
 
 ### 退款(目前还没有实现)
 
@@ -247,7 +247,7 @@ Lua实现抢红包的流程：
 
 思路是先将 Lua 脚本先缓存起来 , 返回给客户端 Lua 脚本的 sha1 摘要。 客户端存储脚本的 sha1 摘要 ，每次请求执行 EVALSHA 命令即可。
 
-![福昕截屏20230129144224941](.\images\福昕截屏20230129144224941.PNG)
+![福昕截屏20230129144224941](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%A6%8F%E6%98%95%E6%88%AA%E5%B1%8F20230129144224941.PNG)
 
 ## 大文件
 
@@ -303,13 +303,13 @@ FILE_UPLOAD_STATUS里面存放的值是false或者true，如果是false的话就
 
 实际上需要客户端和服务器：我的用户发送一个请求，说要下载，然后请求是发送给客户端的，客户端先去问服务器支不支持断点下载，如果支持的话就不断的发送请求给服务器实现断点下载。因此我的项目需要实现的有客户但，以及服务器。
 
-![福昕截屏20230129144451926](.\images\福昕截屏20230129144451926.PNG)
+![福昕截屏20230129144451926](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%A6%8F%E6%98%95%E6%88%AA%E5%B1%8F20230129144451926.PNG)
 
 一个比较常见的场景,就是断点续传/下载,在网络情况不好的时候,可以在断开连接以后,仅继续获取部分内容. 例如在网上下载软件,已经下载了 95% 了,此时网络断了,如果不支持范围请求,那就只有被迫重头开始下载.但是如果有范围请求的加持,就只需要下载最后 5% 的资源,避免重新下载.
 
 另一个场景就是多线程下载,对大型文件,开启多个线程, 每个线程下载其中的某一段,最后下载完成之后, 在本地拼接成一个完整的文件,可以更有效的利用资源.
 
-![福昕截屏20230129144525582](.\images\福昕截屏20230129144525582.PNG)
+![福昕截屏20230129144525582](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E7%A6%8F%E6%98%95%E6%88%AA%E5%B1%8F20230129144525582.PNG)
 
 #### Range & Content-Range
 
@@ -417,7 +417,7 @@ AC自动机就是在前缀树的基础上做升级。
 
 - 以下是其他节点的定义规则，看图说话。
 
-  ![AC自动机.excalidraw](.\images\AC自动机.excalidraw.png)
+  ![AC自动机.excalidraw](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/AC%E8%87%AA%E5%8A%A8%E6%9C%BA.excalidraw.png)
 
   - 假设有一个节点X，X的父亲节点P，P的`fail`指针指的是谁，看图可以知道指向的是头节点。
 
@@ -427,17 +427,17 @@ AC自动机就是在前缀树的基础上做升级。
 
   - 再看S节点。
 
-    ![AC自动机1.excalidraw](.\images\AC自动机1.excalidraw.png)
+    ![AC自动机1.excalidraw](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/AC%E8%87%AA%E5%8A%A8%E6%9C%BA1.excalidraw.png)
 
   - S的父亲节点X的`fail`指针指向的节点是头节点，它们之间的路径是c，而头节点有c这个路径，所以X的`fail`指针指向的是头节点的以c为路径的孩子节点，如图。
 
-    ![AC自动机2.excalidraw](.\images\AC自动机2.excalidraw.png)
+    ![AC自动机2.excalidraw](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/AC%E8%87%AA%E5%8A%A8%E6%9C%BA2.excalidraw.png)
 
 #### AC自动机的fail指针的作用
 
 我们再来画一个图：
 
-![AC自动机3.excalidraw](.\images\AC自动机3.excalidraw.png)
+![AC自动机3.excalidraw](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/AC%E8%87%AA%E5%8A%A8%E6%9C%BA3.excalidraw.png)
 
 `fail`指针的含义比较抽象，但是我们还是尝试去概括一下：
 
@@ -447,13 +447,13 @@ AC自动机就是在前缀树的基础上做升级。
 
 有节点X，假设字符串`abc`就是我们无法匹配成功的字符串。`fail`指针指向的节点和头节点连接而成的路径是c，那么这个字符串`c`实际上就是与`abc`拥有同一后缀并且最长的字符串。
 
-![image-20221225230728118](.\images\image-20221225230728118.png)
+![image-20221225230728118](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/image-20221225230728118.png)
 
 有节点Y，假设字符串`abcd`就是我们无法匹配成功的字符串。Y的`fail`指针指向的节点与头节点连成的字符串是`cd`，那么`cd`就是与`abcd`拥有相同最长后缀的字符串，与`abcd`拥有相同后缀的字符串还有`c`，但是`c`没有`cd`长，所以`fail`指针没有指向另一头的节点。
 
 #### 大文章敏感词匹配
 
-![AC自动机4.excalidraw](.\images\AC自动机4.excalidraw.png)
+![AC自动机4.excalidraw](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/AC%E8%87%AA%E5%8A%A8%E6%9C%BA4.excalidraw.png)
 
 - 我们有大文章`abcdex`，我们对着这个AC自动机从0位置开始进行匹配，发现只能匹配到字符串`abcde`，因此得出结论，从0位置开始匹配，是无法匹配出敏感词的。
 - 我们匹配失败了，只能匹配到字符串`abcde`，此时的节点是X，这时候，我们就跳往X的`fail`指针指向的位置的节点Y。
