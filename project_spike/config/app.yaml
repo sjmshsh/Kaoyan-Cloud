@@ -1,0 +1,36 @@
+server:
+  name: "project-spike"
+  addr: "127.0.0.1:82"
+zap:
+  debugFileName: "D:\\项目日志\\debug\\project-debug.log"
+  infoFileName: "D:\\项目日志\\info\\project-info.log"
+  warnFileName: "D:\\项目日志\\error\\project-error.log"
+  maxSize: 500
+  maxAge: 28
+  MaxBackups: 3
+redis:
+  host: 101.43.166.179
+  port: 6379
+  password: "Bao1417165487"
+  db: 0
+grpc:
+  addr: "127.0.0.1:8888"
+  name: "spike"
+  version: "1.0.0"
+  Weight: 2
+etcd:
+  addrs:
+    - "127.0.0.1:2379"
+rabbit:
+  addrs:
+    - "101.43.166.179:5672"
+  username: guest
+  password: guest
+  virtual: lxy
+mysql:
+  addrs:
+    - "127.0.0.1:3306"
+  user: root
+  password: Bao1417165487
+  dbname: kaoyanyun_redpack
+

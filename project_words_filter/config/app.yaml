@@ -1,0 +1,18 @@
+server:
+  name: "project-words-filter"
+  addr: "127.0.0.1:81"
+zap:
+  debugFileName: "D:\\项目日志\\debug\\project-debug.log"
+  infoFileName: "D:\\项目日志\\info\\project-info.log"
+  warnFileName: "D:\\项目日志\\error\\project-error.log"
+  maxSize: 500
+  maxAge: 28
+  MaxBackups: 3
+grpc:
+  addr: "127.0.0.1:8882"
+  name: "filter"
+  version: "1.0.0"
+  Weight: 2
+etcd:
+  addrs:
+    - "127.0.0.1:2379"

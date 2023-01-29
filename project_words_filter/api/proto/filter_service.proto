@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package filter.service.v1;
+
+option go_package = "project-words_filter/pkg/service/filter.service.v1";
+
+message ContentMessage {
+  string content = 1;
+}
+
+message ContentResponse {
+  string afterContent = 1;
+}
+
+service FilterService {
+  rpc Filter(ContentMessage) returns (ContentResponse) {}
+}

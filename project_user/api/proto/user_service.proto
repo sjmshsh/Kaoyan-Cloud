@@ -1,0 +1,152 @@
+syntax = "proto3";
+
+package user.service.v1;
+
+option go_package = "project-user/pkg/service/user.service.v1";
+
+// 秒传+暂停上传的功能都可以用这个接口完成
+// 检测此文件的MD5值
+message CheckFileMd5Request {
+  string md5 = 1; // 文件的MD5值
+  int32 chunks = 2;  // 文件的总分片大小
+}
+
+message CheckFileMd5Response {
+  int32 flg = 1; // 用来标记文件的状态
+  repeated int32 misschunkList = 2; // 缺失的文件分片
+}
+
+// 上传文件的正式接口
+message UploadFileRequest {
+  // 用户ID
+  int64 userId = 1;
+  // 任务ID
+  int64 id = 2;
+  // 文件总大小
+  int64 size = 3;
+  // 文件名
+  string name = 4;
+  // MD5值
+  string md5 = 5;
+  // 文件存储路径
+  string path = 6;
+}
+
+message UploadFileResponse {
+  int64 code = 1;
+  string msg = 2;
+}
+
+message CheckSignRequest {
+  int64 userId = 1;
+  string year = 2;
+  string month = 3;
+  string day = 4;
+}
+
+message GetSignRequest {
+  int64 userId = 1;
+  string year = 2;
+  string month = 3;
+}
+
+message Response {
+  int64 status = 1;
+  string msg = 2;
+  repeated int64 data = 3;
+}
+
+message WatchUvRequest {
+
+}
+
+message WatchUvResponse {
+  int64 uv = 1;
+}
+
+message LocationRequest {
+  string longitude = 1;
+  string latitude = 2;
+  int64 userId = 3;
+  string location = 4;
+}
+
+message FindFriendRequest {
+  string longitude = 1;
+  string latitude = 2;
+}
+
+message FindFriendResponse {
+  repeated string Name = 1;
+  repeated float Dist = 4;
+}
+
+message PostBlogRequest {
+  string content = 1; // 文章内容
+  int64 userId = 2; // 用户ID
+}
+
+message WatchRequest {
+  int64 userId = 1; // 用户ID
+  int64 attentionUserId = 2;
+}
+
+// 各种列表
+message ListRequest {
+  int64 UserId = 1;
+  int64 Start = 2;
+  int64 Offset = 3;
+  int64 Type = 4;  // 获取哪个类型的列表
+}
+
+message ListResponse  {
+  repeated string UserList = 1; // 这里直接是json字符串就可以了
+}
+
+
+// 评论
+message CommentRequest {
+  string content = 1; // 评论内容
+  int64 id = 2; // 在什么东西上面评论
+
+}
+
+message CommentResponse {
+  string msg = 1;
+}
+
+
+// 获取用户推荐博客的列表FEED流！
+message GetFeedListRequest {
+  int64 userId = 1;
+  int64 start = 2;
+  int64 offset = 3;
+}
+
+message Feed {
+  string content = 1; // 博客内容
+  string star_num = 2; // 点赞数
+  string comment_num = 3; // 评论数量
+}
+
+message GetFeedListResponse {
+  repeated string feed = 1; // 这个里面是feed的json串
+}
+
+service UserService {
+  rpc CheckFileMd5(CheckFileMd5Request) returns(CheckFileMd5Response);
+  rpc UploadFile(UploadFileRequest) returns (UploadFileResponse);
+  rpc GetSign(GetSignRequest) returns (Response);
+  rpc CheckIn(CheckSignRequest) returns (Response);
+  rpc WatchUv(WatchUvRequest) returns(WatchUvResponse);
+  rpc Location(LocationRequest) returns (Response);
+  rpc FindFriend(FindFriendRequest) returns(FindFriendResponse);
+  rpc PostBlog(PostBlogRequest) returns (Response);
+  rpc Watch(WatchRequest) returns (Response);
+
+  rpc List(ListRequest) returns (ListResponse);
+  rpc OList(ListRequest) returns (ListResponse);
+  rpc Comment (CommentRequest) returns (CommentResponse);
+
+  rpc GetFeedList(GetFeedListRequest) returns (GetFeedListResponse);
+}

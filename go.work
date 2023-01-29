@@ -1,0 +1,12 @@
+go 1.19
+
+use (
+	.
+	./project_api
+	./project_api/project_common
+	project_user
+	project_words_filter
+	project_spike
+	project_auth
+	project_count_service
+)

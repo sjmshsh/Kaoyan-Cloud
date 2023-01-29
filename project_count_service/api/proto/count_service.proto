@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package count.service.v1;
+
+option go_package = "project-count/pkg/service/count.service.v1";
+
+message CountRequest {
+  int64 type = 1; // 类型，点赞，关注，评论
+  int64 id = 3; // 文章ID，评论ID，Tips：如果id填写为-1，就说明是关注数
+  int64 symbol = 4; // 加减类型
+}
+
+message Response {
+  int64 data = 1;
+}
+
+service CountService {
+  rpc Count(CountRequest) returns (Response);
+  rpc GetCount(CountRequest) returns (Response);
+}

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package spike.service.v1;
+
+option go_package = "project-spike/pkg/service/spike.service.v1";
+
+message SendRequest {
+  float amount = 1; // 红包总金额
+  int32 number = 2; // 红包的总数量
+  int64 userID = 3; // 用户ID
+}
+
+message SendResponse {
+  string code = 1;
+  string msg = 2;
+  int64 RedPacketId = 3; // 返回红包的ID
+}
+
+message RecvRequest {
+  int64 userId = 1; // 用户ID
+  int64 id = 2; // 红包ID
+}
+
+message RecvResponse {
+  int64 code = 1;
+  string msg = 2;
+}
+
+message ListRequest {
+  int64 id = 1; // 查询改红包的结果
+}
+
+message ListResponse {
+  repeated string list = 1; // 红包的结果，数组类型
+}
+
+service SpikeService {
+  rpc SendRedPack(SendRequest) returns (SendResponse) {}
+  rpc RecvRedPack(RecvRequest) returns (RecvResponse) {}
+  rpc ListRedPack(ListRequest) returns (ListResponse) {}
+}
