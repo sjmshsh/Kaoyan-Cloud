@@ -1,6 +1,6 @@
 # 项目架构图
 
-![项目架构图.excalidraw](.\images\项目架构图.excalidraw.png)
+![项目架构图.excalidraw](https://github.com/sjmshsh/Kaoyan-Cloud/blob/master/images/%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E5%9B%BE.excalidraw.png)
 
 # 技术栈介绍
 
